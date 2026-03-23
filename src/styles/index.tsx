@@ -4,7 +4,8 @@ const EstiloGlobal = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  fonte-family: Roboto, sans-serif:
+  font-family: Roboto, sans-serif;
+  list-style: none;
 }`
 
 export const Container = styled.div`
