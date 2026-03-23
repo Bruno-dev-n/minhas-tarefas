@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import { props } from '.'
-export const Card = styled.div<props>`
+type SemLegendaEContador = Omit<props, 'contador' | 'legenda'>
+export const Card = styled.div<SemLegendaEContador>`
   padding: 8px;
-  border: 1px solid ${(props) => (props.ativo ? '#1e90ff' : '#a1a1a1')};
+  border: 1px solid ${(props) => (props.ativo ? '#44ff1e' : '#a1a1a1')};
   background-color: ${(props) => (props.ativo ? '#fff' : '#fcfcfc')};
-  color: ${(props) => (props.ativo ? '#1e90ff' : ' #5e5e5e')};
+  color: ${(props) => (props.ativo ? '#44ff1e' : ' #5e5e5e')};
   border-radius: 8px;
 `
 export const Contador = styled.span`
