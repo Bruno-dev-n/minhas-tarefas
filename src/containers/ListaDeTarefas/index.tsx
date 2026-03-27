@@ -1,24 +1,25 @@
 import Tarefa from '../../Components/Tarefa'
 import { Container } from '../ListaDeTarefas/styles'
+import * as enums from '../../utils/enums/tarefa'
 
 const tarefas = [
   {
     titulo: 'estudar',
     descricao: 'aula sobre typescript',
-    prioridade: 'importante',
-    status: 'pendente'
+    prioridade: enums.Prioridade.IMPORTANTE,
+    status: enums.Status.PENDENTE
   },
   {
     titulo: 'levar Produtos',
     descricao: 'perfumes de fulano',
-    prioridade: 'urgente',
-    status: 'pendente'
+    prioridade: enums.Prioridade.URGENTE,
+    status: enums.Status.CONCLUIDO
   },
   {
     titulo: 'ver a genda',
     descricao: 'entrar em contato com clientes',
-    prioridade: 'urgente',
-    status: 'concluido'
+    prioridade: enums.Prioridade.NORMAL,
+    status: enums.Status.CONCLUIDO
   }
 ]
 const ListaDeTarefas = () => (
