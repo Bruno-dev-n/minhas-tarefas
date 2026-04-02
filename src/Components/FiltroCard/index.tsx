@@ -5,7 +5,7 @@ export type props = {
   legenda: string
 }
 const FiltroCard = ({ ativo, contador, legenda }: props) => (
-  <S.Card ativo={ativo}>
+  <S.Card $ativo={ativo}>
     <S.Contador>{contador}</S.Contador>
     <S.Label>{legenda}</S.Label>
   </S.Card>

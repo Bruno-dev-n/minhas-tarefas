@@ -4,18 +4,25 @@ import { Container } from '../ListaDeTarefas/styles'
 import { RootReducer } from '../../store'
 
 const ListaDeTarefas = () => {
-  const { tarefas } = useSelector((state: RootReducer) => state)
+  const { itens } = useSelector((state: RootReducer) => state.tarefas)
+  const { termo } = useSelector((state: RootReducer) => state.filtro)
+  const filtroTarefas = () => {
+    return itens.filter(
+      (item) => item.titulo.toLowerCase().search(termo.toLowerCase()) !== -1
+    )
+  }
   return (
     <main>
       <Container>
         <p>
-          2 tarefas marcadas como: &quot;categoria&ldquo; e &quot;termo&ldquo;
+          2 tarefas marcadas como: &quot;categoria&ldquo; e &quot;{termo}&ldquo;
         </p>
 
         <ul>
-          {tarefas.map((t) => (
+          {filtroTarefas().map((t) => (
             <li key={t.titulo}>
               <Tarefa
+                id={t.id}
                 descricao={t.descricao}
                 titulo={t.titulo}
                 prioridade={t.prioridade}
