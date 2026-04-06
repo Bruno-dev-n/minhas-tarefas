@@ -1,8 +1,20 @@
 import { Provider } from 'react-redux' // 1. O "Garçom" do Redux: Ele entrega os dados para todos os componentes abaixo dele.
-import BarraLateral from './containers/BarraLateral'
-import ListaDeTarefas from './containers/ListaDeTarefas'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import EstiloGlobal, { Container } from './styles' // 2. Nossos estilos que definem o Reset CSS e o Grid de duas colunas.
 import { store } from './store/index' // 3. A loja central que configuramos com os reducers de tarefas e filtros.
+import { Home } from './pages/Home'
+import Cadastro from './pages/cadastro'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/novo',
+    element: <Cadastro />
+  }
+])
 
 function App() {
   return (
@@ -18,8 +30,7 @@ function App() {
           O <Container> (que configuramos com display: grid) organiza a
           BarraLateral (224px) e a ListaDeTarefas (auto) lado a lado. */}
       <Container>
-        <BarraLateral />
-        <ListaDeTarefas />
+        <RouterProvider router={router} />
       </Container>
     </Provider>
   )
