@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import Tarefa from '../../Components/Tarefa'
-import { Container } from '../ListaDeTarefas/styles'
+import { Container, Resultado } from '../ListaDeTarefas/styles'
 import { RootReducer } from '../../store'
 
 const ListaDeTarefas = () => {
@@ -36,8 +36,21 @@ const ListaDeTarefas = () => {
     return tarefasFiltradas
   }
 
+  const exibeResultado = (quantidade: number) => {
+    let mensagem = ''
+    const complemetacao =
+      termo !== undefined && termo.length > 0 ? ` com: "${termo}"` : ''
+    if (criterio === 'todas') {
+      mensagem = `${quantidade} tarefa(s) encontrada(s) ${complemetacao}`
+    } else {
+      mensagem = `${quantidade} tarefa(s) encontrada(s) como: "${criterio}: ${valor}${complemetacao}"`
+    }
+    return mensagem
+  }
+
   // 3. Execução da filtragem antes de renderizar
   const tarefas = filtraTarefas()
+  const mensagem = exibeResultado(tarefas.length)
 
   return (
     <main>
@@ -45,11 +58,7 @@ const ListaDeTarefas = () => {
         {/* 4. Feedback Visual
             É importante dizer ao usuário quantas tarefas foram encontradas
             para ele saber que o filtro funcionou. */}
-        <p>
-          {tarefas.length} tarefa(s) encontrada(s) como: &quot;{criterio}:{' '}
-          {valor}&quot;
-          {termo && ` e termo: "${termo}"`}
-        </p>
+        <Resultado>{mensagem}</Resultado>
 
         <ul>
           {/* 5. Mapeamento (Render List)

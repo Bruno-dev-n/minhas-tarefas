@@ -10,8 +10,15 @@ export const Container = styled.main`
   height: 100vh;
 
   /* 3. Controle de Rolagem (Scroll)
-     'overflow-y: scroll;' força a barra de rolagem vertical a aparecer.
-     Isso é útil para que, mesmo com poucas tarefas, o layout não "pule"
+    'overflow-y: scroll;' força a barra de rolagem vertical a aparecer.
+    Isso é útil para que, mesmo com poucas tarefas, o layout não "pule"
      quando a lista crescer e a barra surgir. */
   overflow-y: scroll;
+`
+export const Resultado = styled.p`
+  display: block;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  font-size: 18px;
+  font-weight: 700;
 `
